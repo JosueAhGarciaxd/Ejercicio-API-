@@ -10,14 +10,21 @@ const getDogBreeds = async () => {
 
         data.data.forEach(breed => {
             const card = document.createElement('div');
+            card.className = 'card';
             const attributes = breed.attributes;
+            
             card.innerHTML = `
-                <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                   <div class="p-4">
-                        <h2 class="text-xl font-bold mb-2">${attributes.name}</h2>
-                        <p class="text-gray-700">${attributes.description}</p>
+                <div class="card-header">
+                    <h2 class="text-xl font-bold">${attributes.name}</h2>
+                </div>
+                <div class="card-content">
+                    <p class="text-gray-700 mb-4">${attributes.description || 'No hay descripción disponible para esta raza.'}</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm font-medium text-indigo-600">Origen: ${attributes.origin || 'Desconocido'}</span>
+                        <span class="text-sm font-medium text-orange-500">Viven de: ${attributes.life.min || '?'}-${attributes.life.max || '?'} años</span>
                     </div>
-                </div>  
+                </div>
+                <div class="paw-print">🐾</div>
             `;
 
             cardsParent.appendChild(card);
@@ -25,6 +32,13 @@ const getDogBreeds = async () => {
 
     } catch (error) {
         console.error("Error:", error.message);
+        const cardsParent = document.getElementById('cards');
+        cardsParent.innerHTML = `
+            <div class="col-span-3 text-center p-8">
+                <p class="text-xl text-red-500">Error al cargar los datos: ${error.message}</p>
+                <p class="mt-4">Por favor, intenta nuevamente más tarde.</p>
+            </div>
+        `;
     }
 };
 
@@ -36,4 +50,6 @@ const getDogBreeds2 = () => {
 };
 
 getDogBreeds();
-getDogBreeds2();
+// getDogBreeds2();
+
+

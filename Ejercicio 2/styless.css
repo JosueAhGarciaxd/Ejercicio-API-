@@ -1,0 +1,82 @@
+:root {
+    --dark-black: #171717;
+    --dark-grey: #444444;
+    --accent-red: #DA0037;
+    --light-grey: #EDEDED;
+}
+
+.dark-bg {
+    background-color: var(--dark-black);
+    color: var(--light-grey);
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+.title {
+    color: var(--accent-red);
+    text-shadow: 0 2px 4px rgba(218, 0, 55, 0.2);
+}
+
+.todo-card {
+    background-color: var(--dark-grey);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    border-left: 4px solid var(--accent-red);
+}
+
+.todo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(218, 0, 55, 0.1);
+}
+
+.card-header {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(237, 237, 237, 0.1);
+    position: relative;
+}
+
+.card-header h2 {
+    color: var(--light-grey);
+    font-weight: 600;
+    margin: 0;
+    padding-right: 40px;
+    text-transform: capitalize;
+    word-break: break-word;
+}
+
+.card-content {
+    padding: 1rem;
+    color: var(--light-grey);
+}
+
+.status-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.completed {
+    background-color: rgba(0, 200, 83, 0.2);
+    color: #00C853;
+}
+
+.pending {
+    background-color: rgba(218, 0, 55, 0.2);
+    color: var(--accent-red);
+}
+
+.task-id {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.75rem;
+    font-size: 0.75rem;
+    color: rgba(237, 237, 237, 0.5);
+}
